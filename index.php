@@ -35,7 +35,7 @@ if(isset($_POST['btn-login']))
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this site -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
   </head>
@@ -45,21 +45,31 @@ if(isset($_POST['btn-login']))
   <header>
     <div class="container">
       <img src="img/fritter100.png" class="logo" alt=""><h1>Fritter</h1><h5>A social network for who loves cooking</h5>
-      <form class="form-inline">
+      <form class="form-inline" method="post">
+           
         <div class="form-group">
           <label class="sr-only" for="exampleInputEmail3">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+          <input type="email" class="form-control" id="exampleInputEmail3" name="txt_uname_email" placeholder="Enter user or email">
         </div>
         <div class="form-group">
           <label class="sr-only" for="exampleInputPassword3">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+          <input type="password" class="form-control" id="exampleInputPassword3" name="txt_password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-default">Sign in</button><br>
+         
+        <button type="submit" class="btn btn-default" name="btn-login">Sign in</button><br>
         <div class="checkbox">
-          <label>
-            <input type="checkbox"> Remember me
-          </label>
+          <label>Don't have account yet ! <a href="sign-up.php"><strong>Sign Up</strong></a></label>
         </div>
+           <?php
+            if(isset($error))
+            {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                  </div>
+                  <?php
+            }
+            ?>
       </form>
     </div>
   </header>

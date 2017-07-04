@@ -165,13 +165,23 @@ footer{
 }
 
 a {
-    color: #35b729;
+    color: #808080;
 }
 
 .btn{
     color: 	background: #f4f4f4;
     background-color: #35b729;
     
+}
+
+.btn-login{
+    
+    background-color: #35b729;
+    
+}
+
+.alert{
+    color: #808080;
 }
 
 
