@@ -103,9 +103,9 @@ if(isset($_POST['btn-signup']))
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="members.html">Members</a></li>
-            <li><a href="registration.html">Registration</a></li>
+            <li class="active"><a href="registration.php">Registration</a></li>
             <li><a href="photos.html">Photos</a></li>
             <li><a href="profile.html">Profile</a></li>
           </ul>

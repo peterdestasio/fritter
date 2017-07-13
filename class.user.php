@@ -12,7 +12,7 @@ class USER
     {
        try
        {
-           $new_password = password_hash($upass, PASSWORD_DEFAULT);
+           $new_password = md5($upass);
    
            $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass,first_name,last_name,birthday,city,credit_card,ccv) 
                                                        VALUES(:uname, :umail, :upass, :fname, :lname, :birthday, :city, :creditcard, :ccv)");
@@ -46,13 +46,18 @@ class USER
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
           if($stmt->rowCount() > 0)
           {
-             if(password_verify($upass, $userRow['user_pass']))
+              
+              $mdpass = md5($upass);
+              if($mdpass==$userRow['user_pass'])
              {
+               
                 $_SESSION['user_session'] = $userRow['user_id'];
+                
                 return true;
              }
              else
              {
+                 
                 return false;
              }
           }
