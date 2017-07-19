@@ -1,0 +1,31 @@
+CREATE TABLE users (
+    user_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_name varchar(50) NOT NULL UNIQUE,
+    user_email varchar(50) NOT NULL UNIQUE,
+    user_pass varchar(50) NOT NULL,
+    first_name varchar(50),
+    last_name varchar(50),
+    birthday varchar(50),
+    city varchar(50),
+    credit_card varchar(16),
+    ccv varchar(3)
+);
+
+CREATE TABLE following (
+    followingID int NOT NULL AUTO_INCREMENT,
+    followerID int NOT NULL,
+    followedID int NOT NULL,
+    PRIMARY KEY (followingID),
+    FOREIGN KEY (followerID) REFERENCES users(user_id),
+    FOREIGN KEY (followedID) REFERENCES users(user_id)
+);
+
+CREATE TABLE posts (
+    postID int NOT NULL AUTO_INCREMENT,
+    image LONGBLOB,
+    description varchar(80) NOT NULL,
+    link varchar(2083),
+    userID int NOT NULL,
+    PRIMARY KEY (postID),
+    FOREIGN KEY (userID) REFERENCES users(user_id)
+);
