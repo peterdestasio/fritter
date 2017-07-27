@@ -44,8 +44,11 @@ else
                                                        VALUES('$user_name' ,'$user_email','$user_pass','$first_name','$last_name','$birthday','$city','$credit_card','$ccv')";
       
         $resultset = mysql_query($query, $connection);
-        echo "Successfully added ";
-        echo $query;
+        $response = "Successfully added " . $query;
+        //echo "Successfully added ";
+        //echo $query;
     }
+    
+    echo json_encode($response);
 }
 ?>
