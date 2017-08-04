@@ -41,6 +41,10 @@ welcome : <?php print($userRow['user_name']); ?>
     <form method="POST" action="\fritter/testgovernment.php?id=<?php echo $user_id; ?>">
     <input type="submit" value="Check Government" />
 </form>
+    
+    <form method="POST" action="\fritter/showpeople.php?id=<?php echo $user_id; ?>">
+    <input type="submit" value="Find Friends" />
+</form>
 </div>
 </body>
 </html>

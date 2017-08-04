@@ -1,7 +1,8 @@
 <?php
 
 include_once("dbconfig.php");
- 
+$idCurrentUser = $_GET['id'];
+ //echo $idCurrentUser;
 //fetching data in descending order
 $result = $DB_con->query("SELECT * FROM users ORDER BY user_id DESC");
 ?>
@@ -30,7 +31,7 @@ $result = $DB_con->query("SELECT * FROM users ORDER BY user_id DESC");
         echo "<td>".$row['birthday']."</td>";
         echo "<td>".$row['city']."</td>";    
         //echo "<td><a href=\"edit.php?id=$row[user_id]\">Edit</a> | <a href=\"delete.php?id=$row[user_idid]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>"; 
-        echo "<td><a href=\"edit.php?id=$row[user_id]\">Follow</a> | <a href=\"delete.php?id=$row[user_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Unfollow</a></td>";
+        echo "<td><a href=\"follow.php?idFollowed=$row[user_id]&idCurrent=$idCurrentUser\" onClick=\"return confirm('Are you sure you want to follow?')\">Follow</a> | <a href=\"unfollow.php?idToDefollow=$row[user_id]&idCurrent=$idCurrentUser\" onClick=\"return confirm('Are you sure you want to unfollow?')\">Unfollow</a></td>";
     }
     ?>
     </table>
