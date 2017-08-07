@@ -1,4 +1,5 @@
 <?php
+    $userID = $_GET['id'];
 	$db = mysqli_connect("localhost", "root", "", "fritter");
 	$msg = "";
 
@@ -8,7 +9,7 @@
 
 		$image = $_FILES['image']['name'];
 		$image_text = mysqli_real_escape_string($db, $_POST['image_text']);
-        $userID = 6;
+        
 
 
 		$sql = "INSERT INTO images (image, image_text, userID) VALUES ('$image', '$image_text', '$userID')";
@@ -21,9 +22,14 @@
 		}
 	}
 
-	$result = mysqli_query($db, "SELECT * FROM images");
+	//$result = mysqli_query($db, "SELECT * FROM images");
 
-?>
+    $result = mysqli_query($db, "SELECT imageID, image, image_text, userID FROM images
+JOIN following ON following.followerID = '$userID' && following.followedID = images.userID;");
+
+    
+
+//?>
 
 <!DOCTYPE html>
 <html>
@@ -63,7 +69,7 @@
 </head>
 <body>
 <div id="content">
-<?php
+
 
 	while ($row = mysqli_fetch_array($result)) {
 		echo "<div id='img_div'>";
@@ -71,9 +77,9 @@
 			echo "<p>".$row['image_text']."</p>";
 		echo "</div>";
 	}
-?>
 
-	<form method="POST" action="newsfeed.php" enctype="multipart/form-data">
+
+	<form method="POST" action="\fritter/newsfeed.php?id={$userID}" enctype="multipart/form-data">
 		<input type="hidden" name="size" value="1000000">
 		<div>
 			<input type="file" name="image">
@@ -88,3 +94,5 @@
 </div>
 </body>
 </html>
+
+?>

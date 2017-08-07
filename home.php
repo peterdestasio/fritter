@@ -45,6 +45,9 @@ welcome : <?php print($userRow['user_name']); ?>
     <form method="POST" action="\fritter/showpeople.php?id=<?php echo $user_id; ?>">
     <input type="submit" value="Find Friends" />
 </form>
+    <form method="POST" action="\fritter/newsfeed.php?id=<?php echo $user_id; ?>">
+    <input type="submit" value="newsfeed" />
+</form>
 </div>
 </body>
 </html>
