@@ -29,7 +29,7 @@ JOIN following ON following.followerID = '$userID' && following.followedID = ima
 
     
 
-//?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -69,7 +69,7 @@ JOIN following ON following.followerID = '$userID' && following.followedID = ima
 </head>
 <body>
 <div id="content">
-
+<?php
 
 	while ($row = mysqli_fetch_array($result)) {
 		echo "<div id='img_div'>";
@@ -77,9 +77,10 @@ JOIN following ON following.followerID = '$userID' && following.followedID = ima
 			echo "<p>".$row['image_text']."</p>";
 		echo "</div>";
 	}
+?>
 
-
-	<form method="POST" action="\fritter/newsfeed.php?id={$userID}" enctype="multipart/form-data">
+	<form method="POST" action="\fritter/newsfeed.php?id= <?php
+                                echo $userID?>" enctype="multipart/form-data">
 		<input type="hidden" name="size" value="1000000">
 		<div>
 			<input type="file" name="image">
@@ -94,5 +95,3 @@ JOIN following ON following.followerID = '$userID' && following.followedID = ima
 </div>
 </body>
 </html>
-
-?>
