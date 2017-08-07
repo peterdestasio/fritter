@@ -29,3 +29,10 @@ CREATE TABLE posts (
     PRIMARY KEY (postID),
     FOREIGN KEY (userID) REFERENCES users(user_id)
 );
+
+
+//QUERY FOR RETRIEVING PICTURES 
+//HAVING A USER ID RETURN THE PICTURES SHARED BY HIS FOLLOWERS
+SELECT imageID, image, image_text, userID
+FROM images
+JOIN following ON following.followerID = 6 && following.followedID = images.userID;
