@@ -28,7 +28,9 @@ else
         
         while($r = mysql_fetch_assoc($resultset))
         {
-            
+            $row_array['user_id'] = $r['user_id'];
+            $row_array['first_name'] = $r['first_name'];
+            $row_array['last_name'] = $r['last_name'];
              $row_array['user_email'] = $r['user_email'];
             $row_array['user_pass'] = $r['user_pass'];
             //$row_array['birthday'] = $r['birthday'];
