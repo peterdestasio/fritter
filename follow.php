@@ -1,7 +1,7 @@
 <?php
 include_once("dbconfig.php");
  
-$idFollower = $_GET['idCurrent'];
+$idFollower = $_GET['id'];
 $idFollowed = $_GET['idFollowed'];
 //echo $idFollowed;
 
@@ -17,8 +17,7 @@ $idFollowed = $_GET['idFollowed'];
         $query->bindparam(':followerID', $idFollower);
         $query->bindparam(':followedID', $idFollowed);
         $query->execute();
-
  
 //redirecting to the page
-header("Location:showpeople.php");
+header("Location:showpeople.php?id=$idFollower");
 ?>

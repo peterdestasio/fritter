@@ -14,11 +14,11 @@ $a = 6;
 $sql = "DELETE FROM following WHERE followerID=:followerID && followedID=:followedID";
         $query = $DB_con->prepare($sql);
         $query->bindparam(':followerID', $idFollower);
-        $query->bindparam(':followedID', $idTODefollow);
+        $query->bindparam(':followedID', $idToDefollow);
         $query->execute();
                 
 
  
 //redirecting to the page
-header("Location:showpeople.php");
+header("Location:showpeople.php?id=$idFollower");
 ?>
