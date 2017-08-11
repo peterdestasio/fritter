@@ -3,17 +3,12 @@ $host = "localhost"; //database host server
 $db = "fritter"; //database name
 $user = "root"; //database user
 $pass = ""; //password
-$connection = mysql_connect($host, $user, $pass);
+
 //Check to see if we can connect to the server
+$connection = mysql_connect($host, $user, $pass);
 
-/*
-$x = $_GET['x'];
-$y = $_GET['y'];
-$z = $_GET['z'];
-*/
-
-$followerID = $_GET['followerID'];
-$followedID = $_GET['followedID'];
+$followerID = $_POST['followerID'];
+$followedID = $_POST['followedID'];
 
 
 if(!$connection)
